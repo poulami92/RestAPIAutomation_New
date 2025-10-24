@@ -93,7 +93,7 @@ public class EcommAPITest {
 		
 		
 		
-		//Delete Product-1
+		//Delete Product
 		
 		RequestSpecification deleteProductReq= new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization", token)
 				.addPathParam("productId", productId).build();
