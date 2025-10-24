@@ -9,4 +9,5 @@ public class ReUsableMethods {
 		JsonPath js =new JsonPath(response);
 		return js;
 	}
+	  
 }

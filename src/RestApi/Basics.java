@@ -26,7 +26,7 @@ public class Basics {
 		
 		
 		String addPlaceRespopnse=given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
-		.body(new String(Files.readAllBytes(Paths.get("C:\\Users\\MSUSERSL123\\eclipse-workspace\\DemoProject\\src\\Utility\\addPlace.json"))))
+		.body(new String(Files.readAllBytes(Paths.get("C:\\Users\\MSUSERSL123\\eclipse-workspace\\RestApiAutomation\\src\\Utility\\addPlace.json"))))
 		.when().post("/maps/api/place/add/json")
 		.then().log().all().assertThat().statusCode(200)
 		.body("scope",equalTo("APP"))
@@ -52,7 +52,7 @@ public class Basics {
 				+ "  \"key\": \"qaclick123\"\r\n"
 				+ "}")
 		.when().put("/maps/api/place/update/json")
-		.then().log().all().statusCode(200)
+		.then().log().all().assertThat().statusCode(200)
 		.body("msg", equalTo("Address successfully updated"));
 		
 		
@@ -60,7 +60,7 @@ public class Basics {
 		
 		String getPlaceRespopnse=given().log().all().queryParam("key", "qaclick123").queryParam("place_id",placeId)
 		.when().get("/maps/api/place/get/json")
-		.then().log().all().statusCode(200).body("address", equalTo(newAddress)).extract().asString();
+		.then().log().all().assertThat().statusCode(200).body("address", equalTo(newAddress)).extract().asString();
 		
 		js = ReUsableMethods.rawToJson(getPlaceRespopnse);
 		String actualAddress=js.getString("address");
