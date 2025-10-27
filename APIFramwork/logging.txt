@@ -27,7 +27,7 @@ Body:
     "phoneNumber": "(+91) 983 893 3937"
 }
 HTTP/1.1 200 OK
-Date: Mon, 27 Oct 2025 17:16:40 GMT
+Date: Mon, 27 Oct 2025 22:10:28 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,8 +40,131 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "6115633092cf69f0ca6c878070a3f46a",
+    "place_id": "b3e48792ef6c9a784eb5491f1c61dd47",
     "scope": "APP",
-    "reference": "e07fb41041ee54260722b50f44d77537e07fb41041ee54260722b50f44d77537",
-    "id": "e07fb41041ee54260722b50f44d77537"
+    "reference": "2a0d109c8b600104144412a910e3c7672a0d109c8b600104144412a910e3c767",
+    "id": "2a0d109c8b600104144412a910e3c767"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b3e48792ef6c9a784eb5491f1c61dd47
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=b3e48792ef6c9a784eb5491f1c61dd47
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Mon, 27 Oct 2025 22:10:28 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 239
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.383494",
+        "longitude": "33.427362"
+    },
+    "accuracy": "50",
+    "name": "Frontline house",
+    "phone_number": "",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+    },
+    "accuracy": 50,
+    "name": "Backline house",
+    "address": "29, side layout, cohen 09",
+    "types": [
+        "shoe park",
+        "shop"
+    ],
+    "website": "http://google.com",
+    "language": "Spanish",
+    "phoneNumber": "(+91) 983 893 3937"
+}
+HTTP/1.1 200 OK
+Date: Mon, 27 Oct 2025 22:10:30 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "afba4854d68402f14158dc330db42083",
+    "scope": "APP",
+    "reference": "a6702e637cd81fa389c2e30e5d0a46bda6702e637cd81fa389c2e30e5d0a46bd",
+    "id": "a6702e637cd81fa389c2e30e5d0a46bd"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=afba4854d68402f14158dc330db42083
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=afba4854d68402f14158dc330db42083
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Mon, 27 Oct 2025 22:10:30 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 236
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.383494",
+        "longitude": "33.427362"
+    },
+    "accuracy": "50",
+    "name": "Backline house",
+    "phone_number": "",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "Spanish"
 }

@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,16 +17,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import resources.TestDataBuild;
+import resources.requestEndPoints;
 import resources.utils;
 
 
 public class placeValidationStepDefination extends utils {
 	
-	RequestSpecification addPlaceReq;
-	Response addPlaceResp;
+	RequestSpecification reqSpec,addPlaceReq;
+	Response addPlaceResp,getPlaceResp;
+	String placeId;
 
 	@Given("Add Place Payload")
 	public void add_place_payload(DataTable dataTable) throws IOException {
@@ -50,15 +54,23 @@ public class placeValidationStepDefination extends utils {
 			types.add(typesData[i]);
 		}
 		
-		
-		addPlaceReq= given().spec(requestSpecification())
+		reqSpec= requestSpecification();
+		addPlaceReq= given().spec(reqSpec)
 		.body(TestDataBuild.createAddPlace(lat, lng, accuracy, name, phoneNo, address, types, website, language));
 	}
 	
-	@When("user calls {string} with Post request")
-	public void user_calls_with_post_request(String string) {
-	    
-		addPlaceResp= addPlaceReq.when().post("maps/api/place/add/json");
+	@When("user calls {string} with {string} request")
+	public void user_calls_with_post_request(String resource,String method) {
+		
+		requestEndPoints resourceApi=requestEndPoints.valueOf(resource);
+		
+	    if(method.equals("POST")) {
+		addPlaceResp= addPlaceReq.when().post(resourceApi.getResource());
+	    }
+	    else if(method.equals("GET"))
+	    {
+	    	getPlaceResp= given().spec(reqSpec).queryParam("place_id",placeId).when().get(resourceApi.getResource());
+	    }
 	}
 	
 	@Then("API call is success with success code {int}")
@@ -73,7 +85,21 @@ public class placeValidationStepDefination extends utils {
 	
 	@Then("{string} in response body is {string}")
 	public void in_response_body_is(String key, String value) {
-		addPlaceResp.then().assertThat().body(key, equalTo(value)).extract().asString();
+		
+		String response=addPlaceResp.then().assertThat().body(key, equalTo(value)).extract().asString();
+		placeId = getResponseKeyValue(response,"place_id").toString();
+			
+
+	}
+	
+	@Then("verify {string} in getPlace response body")
+	public void verify_name_in_response_body(String expectedName) {
+		
+		String response=getPlaceResp.then().extract().asString();
+		String actualName=getResponseKeyValue(response,"name").toString();
+		Assert.assertEquals(actualName,expectedName);
+			
+
 	}
 
 

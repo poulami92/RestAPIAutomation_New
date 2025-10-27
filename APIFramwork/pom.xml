@@ -41,10 +41,5 @@
     <version>3.0.25</version>
 </dependency>
 
-  	<dependency>
-  		<groupId>DemoProject</groupId>
-  		<artifactId>DemoProject</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
   </dependencies>
 </project>
