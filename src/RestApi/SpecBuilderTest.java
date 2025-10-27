@@ -41,7 +41,7 @@ public class SpecBuilderTest {
 		String addPlaceResp =given().spec(req)
 		.body(payLoad.createAddPlace(lat, lng, accuracy, name, phoneNo, address, types, website, language))
 		.when().post("maps/api/place/add/json")
-		.then().spec(resp).assertThat().body("scope", equalTo("APP")).extract().asString();
+		.then().assertThat().spec(resp).body("scope", equalTo("APP")).extract().asString();
 		
 		System.out.println(addPlaceResp);
 
