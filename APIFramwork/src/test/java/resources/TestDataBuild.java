@@ -33,4 +33,11 @@ public static AddPlace createAddPlace(double lat,double lng,int accuracy,String 
 		  
 		  return location;
 	  }
+	  
+	  public static String deletePlace(String placeId)
+	  {
+		  return "{\r\n"
+		  		+ "  \"place_id\": \""+placeId+"\"\r\n"
+		  		+ "}";
+	  }
 }
