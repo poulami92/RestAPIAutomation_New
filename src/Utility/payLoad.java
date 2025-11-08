@@ -11,7 +11,7 @@ public class payLoad {
 		{
 			return "{\r\n"
 					+ "  \"location\": {\r\n"
-					+ "    \"lat\": -38.383494,\r\n"
+					+ "    \"lat\": -38.383594,\r\n"
 					+ "    \"lng\": 33.427362\r\n"
 					+ "  },\r\n"
 					+ "  \"accuracy\": 50,\r\n"
