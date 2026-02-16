@@ -26,7 +26,8 @@ public class Basics {
 		
 		
 		String addPlaceRespopnse=given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
-		.body(new String(Files.readAllBytes(Paths.get("C:\\Users\\MSUSERSL123\\eclipse-workspace\\RestApiAutomation\\src\\Utility\\addPlace.json"))))
+		//.body(new String(Files.readAllBytes(Paths.get("C:\\Users\\MSUSERSL123\\eclipse-workspace\\RestApiAutomation\\src\\Utility\\addPlace.json"))))
+		.body(ReUsableMethods.getDataFromJsonFile("C:\\Users\\MSUSERSL123\\eclipse-workspace\\RestApiAutomation\\src\\Utility\\addPlace.json"))
 		.when().post("/maps/api/place/add/json")
 		.then().log().all().assertThat().statusCode(200)
 		.body("scope",equalTo("APP"))
