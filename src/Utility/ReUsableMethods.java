@@ -18,7 +18,8 @@ public class ReUsableMethods {
 	public static String getDataFromJsonFile(String filePath) throws IOException
 	{
 		Path path = Path.of(filePath);
-		String jsonData=new String(Files.readAllBytes(path));
+		//String jsonData=new String(Files.readAllBytes(path));
+		String jsonData=Files.readString(path);
 		return jsonData;
 	}
 	
