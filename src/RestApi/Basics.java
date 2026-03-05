@@ -41,7 +41,6 @@ public class Basics {
 		System.out.println(placeId);
 		
 		
-		
 		//Update Place
 		
 		String newAddress="70 winter walk, USA";

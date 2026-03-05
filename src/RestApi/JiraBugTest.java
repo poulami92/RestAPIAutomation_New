@@ -15,7 +15,8 @@ public class JiraBugTest {
 		
 		//Create Bug
 		
-		String createIssueResponse=given().header("Content-Type","application/json").header("Authorization","Basic cG91bGFtaTkyZGF0dGFAZ21haWwuY29tOkFUQVRUM3hGZkdGMHFXdDVwbzNNTUxiZnE0bDJ3TV82XzltSEI2eTF4YWR6d0VpaVdiTkI0bWlXcUF4U1BwMWJIQkJCejZ0X1JRT3dIbEVWRzlVRnczdUtMVC1vTkFyeGJFMTRUWWYzcUNjVl82V3ZrNEpzQ1RpRk45QWZncnVWQi05MDdKYWpyWXk0bEp3NF9IckNVcTVIT04ybzRVbDJqSTlBSG40M1p6YkljLTdvVjF5TkN2TT03NzM4M0Y1RQ")
+		String createIssueResponse=given().header("Content-Type","application/json")
+		.header("Authorization","Basic cG91bGFtaTkyZGF0dGFAZ21haWwuY29tOkFUQVRUM3hGZkdGMHFXdDVwbzNNTUxiZnE0bDJ3TV82XzltSEI2eTF4YWR6d0VpaVdiTkI0bWlXcUF4U1BwMWJIQkJCejZ0X1JRT3dIbEVWRzlVRnczdUtMVC1vTkFyeGJFMTRUWWYzcUNjVl82V3ZrNEpzQ1RpRk45QWZncnVWQi05MDdKYWpyWXk0bEp3NF9IckNVcTVIT04ybzRVbDJqSTlBSG40M1p6YkljLTdvVjF5TkN2TT03NzM4M0Y1RQ")
 		.body("{\r\n"
 				+ "    \"fields\": {\r\n"
 				+ "       \"project\":\r\n"
@@ -38,8 +39,8 @@ public class JiraBugTest {
 		
 		//Add attachment
 		given().header("X-Atlassian-Token","no-check")
-		.pathParam("issueId", issueId)
 		.header("Authorization","Basic cG91bGFtaTkyZGF0dGFAZ21haWwuY29tOkFUQVRUM3hGZkdGMHFXdDVwbzNNTUxiZnE0bDJ3TV82XzltSEI2eTF4YWR6d0VpaVdiTkI0bWlXcUF4U1BwMWJIQkJCejZ0X1JRT3dIbEVWRzlVRnczdUtMVC1vTkFyeGJFMTRUWWYzcUNjVl82V3ZrNEpzQ1RpRk45QWZncnVWQi05MDdKYWpyWXk0bEp3NF9IckNVcTVIT04ybzRVbDJqSTlBSG40M1p6YkljLTdvVjF5TkN2TT03NzM4M0Y1RQ")
+		.pathParam("issueId", issueId)
 		.multiPart("file",new File("C:\\Users\\MSUSERSL123\\OneDrive\\Pictures\\Screenshots\\Screenshot 2023-07-02 171842.png"))
 		.when().post("/rest/api/3/issue/{issueId}/attachments")
 		.then().log().all().assertThat().statusCode(200);

@@ -43,7 +43,7 @@ public class MockResponse {
 	@AfterClass
 	public void stopMockServer()
 	{
-		wireMock.start();
+		wireMock.stop();
 	}
 	
 
